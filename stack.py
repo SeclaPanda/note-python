@@ -19,7 +19,7 @@ for a in range(i):
 print(stack_3)
 
 stack_all = [] #initialize big stack
-for i in range(len(stack_1)): #add numbers from firts to big
+for i in range(len(stack_1)): #add numbers from first to big
     stack_all += stack_1[i]
 for i in range(len(stack_2)): #add numbers from second to big 
     stack_all += stack_2[i]
