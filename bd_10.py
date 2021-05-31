@@ -31,7 +31,7 @@ home.grid(column=4, row=1)
 phone = Label(window, text="Phone number")  
 phone.grid(column=4, row=2)
 
-stud = Label(window, text="Does it need a hostel?")  
+stud = Label(window, text="Does he/she need a hostel?")  
 stud.grid(column=0, row=3)
 
 combo = Combobox(window)  
