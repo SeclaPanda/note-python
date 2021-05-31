@@ -1,11 +1,12 @@
-import pyodbc
 from tkinter import *
-from tkinter.ttk import Combobox 
+from tkinter.ttk import Combobox
+from tkinter import scrolledtext
+import pandas_access as mdb
 
+db_filename = '/Users/leramelnik/Downloads/BD9.accdb'
 
 window = Tk()
 window.title("Data Base lab 10")
-
 num_str = Label(window, text="Key")  
 num_str.grid(column=0, row=0) 
 key = Entry(window, width = 10, state = 'disabled')
@@ -72,13 +73,11 @@ combo = Combobox(window)
 combo['values'] = ('Yes', 'No')  
 combo.grid(column=1, row=3) 
 
-window.mainloop()
+df = mdb.read_table(db_filename, 'R1')
 
-conn_str = (
-    r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-    r'DBQ=C:\path\to\mydb.accdb;'
-    )
-cnxn = pyodbc.connect(conn_str)
-crsr = cnxn.cursor()
-for table_info in crsr.tables(tableType='TABLE'):
-    print(table_info.table_name)
+txt = scrolledtext.ScrolledText(window, width=40, height=10)  
+txt.grid(column=0, row=4)  
+txt.insert(INSERT, df)
+
+
+window.mainloop()
