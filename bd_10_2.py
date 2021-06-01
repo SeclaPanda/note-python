@@ -3,19 +3,29 @@ from tkinter.ttk import Combobox
 from tkinter import scrolledtext
 import pyodbc
 
-def df():
-    conn_str = (
+conn_str = (
     r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
     r'DBQ=I:\Git\python_note\note-python/bd_4.accdb;'
     )
-    cnxn = pyodbc.connect(conn_str)
-    crsr = cnxn.cursor()
-    crsr.execute('select * from lab_1')
-    for string in crsr.fetchall():
-        return(string)
+cnxn = pyodbc.connect(conn_str)
+crsr = cnxn.cursor()
+crsr.execute('select * from lab_1')
+
+def daf():
+    #for string in crsr.fetchall():
+    #    return(string)
+    row = crsr.fetchone()
+    return(row)
+
+def sel(num):
+    crsr_1 = cnxn.cursor()
+    crsr_1.execute('select Key from lab_1 where key = '+num+'')
+    res = crsr_1.fetchone()
+    num_str.configure(text = res)
 
 window = Tk()
 window.title("Data Base lab 10")
+
 num_str = Label(window, text="Key")  
 num_str.grid(column=0, row=0) 
 key = Entry(window, width = 10, state = 'disabled')
@@ -61,11 +71,8 @@ phone.grid(column=4, row=2)
 phn = Entry(window, width = 10, state = 'disabled')
 phn.grid(column = 5, row = 2)
 
-upd = Button(window, text="Update"''', command=''')  
-upd.grid(column=6, row=1)
-
-delet = Button(window, text="Delete"''', command=''')  
-delet.grid(column=6, row=2)
+delet = Button(window, text="Delete")  
+delet.grid(column=5, row=4)
 
 add = Button(window, text = "Add")
 add.grid(column = 2, row = 3)
@@ -82,9 +89,37 @@ combo = Combobox(window)
 combo['values'] = ('Yes', 'No')  
 combo.grid(column=1, row=3) 
 
-txt = scrolledtext.ScrolledText(window, width=40, height=10)  
-txt.grid(column=0, row=4)  
-txt.insert(INSERT, df)
+cmb = Combobox(window)  
+cmb['values'] = ('1', '2', '3', '4', '5')
+cmb.current(0)  
+cmb.grid(column=5, row=3)
 
+df = daf()
+txt1 = scrolledtext.ScrolledText(window, width=40, height=5)  
+txt1.grid(column=0, row=4)  
+txt1.insert(INSERT, df)
+
+df = daf()
+txt2 = scrolledtext.ScrolledText(window, width=40, height=5)  
+txt2.grid(column=1, row=4)  
+txt2.insert(INSERT, df)
+
+df = daf()
+txt3 = scrolledtext.ScrolledText(window, width=40, height=5)  
+txt3.grid(column=2, row=4)  
+txt3.insert(INSERT, df)
+
+df = daf()
+txt4 = scrolledtext.ScrolledText(window, width=40, height=5)  
+txt4.grid(column=3, row=4)  
+txt4.insert(INSERT, df)
+
+df = daf()
+txt5 = scrolledtext.ScrolledText(window, width=40, height=5)  
+txt5.grid(column=4, row=4)  
+txt5.insert(INSERT, df)
+
+upd = Button(window, text="Update", command = sel(cmb.get()))  
+upd.grid(column=5, row=5)
 
 window.mainloop()
