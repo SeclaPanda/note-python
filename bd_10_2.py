@@ -1,9 +1,18 @@
 from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import scrolledtext
-import pandas_access as mdb
+import pyodbc
 
-db_filename = '/Users/leramelnik/Downloads/BD9.accdb'
+def df():
+    conn_str = (
+    r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+    r'DBQ=I:\Git\python_note\note-python/bd_4.accdb;'
+    )
+    cnxn = pyodbc.connect(conn_str)
+    crsr = cnxn.cursor()
+    crsr.execute('select * from lab_1')
+    for string in crsr.fetchall():
+        return(string)
 
 window = Tk()
 window.title("Data Base lab 10")
@@ -72,8 +81,6 @@ stud.grid(column=0, row=3)
 combo = Combobox(window)  
 combo['values'] = ('Yes', 'No')  
 combo.grid(column=1, row=3) 
-
-df = mdb.read_table(db_filename, 'R1')
 
 txt = scrolledtext.ScrolledText(window, width=40, height=10)  
 txt.grid(column=0, row=4)  
