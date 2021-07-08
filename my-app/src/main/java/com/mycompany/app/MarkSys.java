@@ -9,14 +9,6 @@ public class MarkSys
     private String Text;
     private String Stat;
 
-    public String Status(int Id, String Comp, String Net, String Name, String Text)
-    {
-        if (Comp != " " && Net != " " && Name != " " && Text != " "){
-            String Stat = "Ready";
-        }
-        return Stat; 
-    }
-
     public MarkSys(int Id, String Comp, String Net, String Name, String Text, String Stat)
     {
         this.Id = Id;
@@ -85,8 +77,17 @@ public class MarkSys
         return Stat;
     } 
 
-    public void setStat(String Stat)
+    public void setStat()
     {
-        this.Stat = Stat;
+        /**this.Stat = Stat;*/
+        if (Comp != " " && Net != " " && Name != " " && Text != " "){
+            this.Stat = "Ready";
+        }
+        else if (Comp == " " || Net == " " || Name == " " || Text == " "){
+            this.Stat = "Returned";
+        }
+        else{
+            this.Stat = "Send";
+        }
     }
 } 

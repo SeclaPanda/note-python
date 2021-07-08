@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch deal",
+            "request": "launch",
+            "mainClass": "com.mycompany.app.deal",
+            "projectName": "my-app"
+        },
+        {
             "type": "fpDebug",
             "request": "launch",
             "name": "Launch Program",
