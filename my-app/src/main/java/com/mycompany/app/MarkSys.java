@@ -79,7 +79,6 @@ public class MarkSys
 
     public void setStat()
     {
-        /**this.Stat = Stat;*/
         if (Comp != " " && Net != " " && Name != " " && Text != " "){
             this.Stat = "Ready";
         }
@@ -89,5 +88,15 @@ public class MarkSys
         else{
             this.Stat = "Send";
         }
+    }
+
+    /**public void stst() 
+    {
+
+    }*/
+
+    public String toString()
+    {
+        return "Id: " + Id + "\nCompany name" + Comp + "\nNetwork channel: " + Net + "\nName: " + Name + "\nText: " + Text + "\nStatus: " + Stat; 
     }
 } 
