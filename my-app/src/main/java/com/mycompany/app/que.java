@@ -95,5 +95,38 @@ public class que
             return off;
         }
 
+        public boolean check (int Id)
+        {
+            Fifo fifo = list;
+            boolean check = false;
+            while (fifo != null)
+            {
+                if (Id == list.getData().getId())
+                {
+                    check = true;
+                    break;
+                }
+                else{
+                    fifo = fifo.getFirst(); 
+                }    
+            }
+            
+            return check;
+        }
         
-}
+        public String showStack() 
+        { 
+            String out = ""; 
+            Fifo fifo = list; 
+            while (fifo != null) 
+            { 
+                out += fifo.getData(); 
+                out += "\n\n"; 
+                fifo = fifo.getFirst(); 
+            } 
+            if (out == "")
+                return "Стек пуст."; 
+            else 
+                return out; 
+        }
+    }
