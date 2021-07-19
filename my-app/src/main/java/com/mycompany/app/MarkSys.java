@@ -90,6 +90,11 @@ public class MarkSys
         }
     }
 
+    public void setStatMan(String Stat)
+    {
+        this.Stat = Stat;
+    }
+
     /**public void stst() 
     {
 
@@ -97,6 +102,6 @@ public class MarkSys
 
     public String toString()
     {
-        return "Id: " + Id + "\nCompany name" + Comp + "\nNetwork channel: " + Net + "\nName: " + Name + "\nText: " + Text + "\nStatus: " + Stat; 
+        return "Id: " + Id + "\nCompany name: " + Comp + "\nNetwork channel: " + Net + "\nName: " + Name + "\nText: " + Text + "\nStatus: " + Stat; 
     }
 } 

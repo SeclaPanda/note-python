@@ -1,34 +1,7 @@
 package com.mycompany.app;
 
-import java.util.LinkedList;
-
 public class que
 {
-    public static void main(String[] args)
-    {
-        LinkedList<MarkSys> fifo = new LinkedList<MarkSys>();
-        
-        MarkSys Offer1 = new MarkSys(0, "Yandex", "mail", "Alex", "Welcome", " "/** , "Send"*/);
-        MarkSys Offer2 = new MarkSys(0, "Mail", "post", "Ivan", "See u later!", " "/** , "Send"*/);
-        MarkSys Offer3 = new MarkSys(0, "Google", "mail", "Darya", "Good bye!", " "/** , "Send"*/);
-
-        /**fifo.addLast(Offer2);
-        fifo.addLast(Offer3);
-        fifo.addLast(Offer1);
-        fifo.removeFirst();
-
-        for (MarkSys i: fifo)
-        {
-            System.out.println(i.getId());
-            System.out.println(i.getComp());
-            System.out.println(i.getNet());
-            System.out.println(i.getName());
-            System.out.println(i.getText());
-            System.out.println(i.getStat());
-
-        }*/
-    }
-
     private void print(String string) 
     {
         System.out.println(string);
@@ -51,7 +24,7 @@ public class que
         if (list == null)
         {
             list = fifo;
-            fifo.setFirst(null);
+            fifo.setLast(null);
         }
         else
         {
@@ -70,7 +43,7 @@ public class que
         }
         else
         {
-            Fifo fifo = list.getLast();
+            Fifo fifo = list.getFirst();
             list = fifo;
             list.setFirst(null);
         }
@@ -89,44 +62,45 @@ public class que
                 }
                 else
                 {
-                    fifo = fifo.getLast();
+                    fifo = fifo.getFirst();
                 }
             }
             return off;
         }
 
-        public boolean check (int Id)
+    public boolean check (int Id)
+    {
+        Fifo fifo = list;
+        boolean check = false;
+    while (fifo != null)
         {
-            Fifo fifo = list;
-            boolean check = false;
-            while (fifo != null)
+            if (Id == list.getData().getId())
             {
-                if (Id == list.getData().getId())
-                {
-                    check = true;
-                    break;
-                }
-                else{
-                    fifo = fifo.getFirst(); 
-                }    
+                check = true;
+                break;
             }
-            
-            return check;
+            else
+            {
+                fifo = fifo.getFirst(); 
+            }    
         }
         
-        public String showStack() 
-        { 
-            String out = ""; 
-            Fifo fifo = list; 
-            while (fifo != null) 
-            { 
-                out += fifo.getData(); 
-                out += "\n\n"; 
-                fifo = fifo.getFirst(); 
-            } 
-            if (out == "")
-                return "Стек пуст."; 
-            else 
-                return out; 
-        }
+        return check;
     }
+        
+    public String showFifo() 
+    { 
+        String out = ""; 
+        Fifo fifo = list; 
+        while (fifo != null) 
+        { 
+            out += fifo.getData(); 
+            out += "\n\n"; 
+            fifo = fifo.getFirst();
+        } 
+        if (out == "")
+            return "Стек пуст."; 
+        else 
+            return out; 
+    }
+}

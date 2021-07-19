@@ -3,13 +3,7 @@ package com.mycompany.app;
 public class Fifo 
 {
     private MarkSys data;
-    private Fifo first, last;
-
-    public Fifo()
-    {
-        first = null;
-        last = null;
-    }
+    private Fifo next, prev;
 
     public void setData(MarkSys data)
     {
@@ -21,23 +15,23 @@ public class Fifo
         return data;
     }
 
-    public Fifo getFirst()
+    public Fifo getNext()
     {
-        return first;
+        return next;
     }
 
-    public void setFirst(Fifo first)
+    public void setNext(Fifo next)
     {
-        this.first = first;
+        this.next = next;
     }
 
-    public Fifo getLast()
+    public Fifo getPrev()
     {
-        return last;
+        return prev;
     }
 
-    public void setLast(Fifo last)
+    public void setPrev(Fifo prev)
     {
-        this.last = last;
+        this.prev = prev;
     }
 }
