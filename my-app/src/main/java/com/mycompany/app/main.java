@@ -13,7 +13,7 @@ public class main
         deque fifo = new deque();
         fifo.addBack(of2);
         fifo.addBack(of1);
-        fifo.addBack(new MarkSys(2, "Google", "Link", "Lera", "How u doing?", ""));
+        fifo.addBack(new MarkSys(2, "Google", "Link", "Lera", "How u doing?", "Send"));
         fifo.Demo();
         fifo.popFront();
         fifo.Demo();
@@ -27,20 +27,27 @@ public class main
                 if (fifo.CheckId(id)) 
                 {
                     MarkSys offer = fifo.Choose(id);
-                    print("Set new company name: ");
-                    String NewComp = scanner.nextLine();
-                    offer.setComp(NewComp); 
-                    print("Set new response channel: ");
-                    String NewNet = scanner.nextLine();
-                    offer.setNet(NewNet); 
-                    print("Set new client name: ");
-                    String NewName = scanner.nextLine();
-                    offer.setName(NewName);
-                    print("Set new text: ");
-                    String NewText = scanner.nextLine();
-                    offer.setText(NewText);
-                    print("\n\n");
-                    break;
+                    if (offer.getStat() != "Send")
+                    {
+                        print("Set new company name: ");
+                        String NewComp = scanner.nextLine();
+                        offer.setComp(NewComp); 
+                        print("Set new response channel: ");
+                        String NewNet = scanner.nextLine();
+                        offer.setNet(NewNet); 
+                        print("Set new client name: ");
+                        String NewName = scanner.nextLine();
+                        offer.setName(NewName);
+                        print("Set new text: ");
+                        String NewText = scanner.nextLine();
+                        offer.setText(NewText);
+                        print("\n\n");
+                        break;
+                    }
+                    else 
+                    {
+                        print("Error! Status is Send, you can't change that offer!");
+                    }
                 }
                 else
                 {
@@ -70,10 +77,11 @@ public class main
                     if (ans == 1)
                     {
                         offer.setStat();
-                        print("New status for choosen offer is: " + offer.getStat().toString());
+                        print("\nNew status for choosen offer is: " + offer.getStat().toString() + "\n");
+                        fifo.Demo();
                         break;
                     }
-                    else 
+                    else if (ans == 2)
                     {
                         print("Set new status: ");
                         String stat = scanner.next();
@@ -89,6 +97,10 @@ public class main
                             print("Wrong status! Please, try again.");
                         }
                     }
+                    else
+                    {
+                        print("You pick wrong param. Try again!");
+                    }
                 } 
                 else 
                 {
@@ -100,6 +112,7 @@ public class main
                 print("Error! Inappropriate value.");
             }
         }
+        print(of2.toString());
     }
     private static void print(String string) 
     {

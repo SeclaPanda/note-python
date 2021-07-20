@@ -79,13 +79,16 @@ public class MarkSys
 
     public void setStat()
     {
-        if (Comp != " " && Net != " " && Name != " " && Text != " "){
+        if (Comp != " " && Net != " " && Name != " " && Text != " ")
+        {
             this.Stat = "Ready";
         }
-        else if (Comp == " " || Net == " " || Name == " " || Text == " "){
+        else if (Comp == " " || Net == " " || Name == " " || Text == " ")
+        {
             this.Stat = "Returned";
         }
-        else{
+        else
+        {
             this.Stat = "Send";
         }
     }
