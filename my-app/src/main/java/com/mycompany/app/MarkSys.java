@@ -95,11 +95,6 @@ public class MarkSys
         this.Stat = Stat;
     }
 
-    /**public void stst() 
-    {
-
-    }*/
-
     public String toString()
     {
         return "Id: " + Id + "\nCompany name: " + Comp + "\nNetwork channel: " + Net + "\nName: " + Name + "\nText: " + Text + "\nStatus: " + Stat; 
