@@ -8,13 +8,13 @@ public class Main
     { 
         Scanner scanner = new Scanner(System.in);   //Make scanner for manual input
         
-        AdsSys of1 = new AdsSys(0, "Yandex", "Post", "Ivan", "Hi!", ""); //Make first object of our class
-        AdsSys of2 = new AdsSys(1, "Mail", "Net", "Alex", "See you later", ""); //Make second object
+        AdsSys of1 = new AdsSys(0, "15 Discount", "Message", "Ivan", "Hi! There are your personal 15% discount.", ""); //Make first object of our class
+        AdsSys of2 = new AdsSys(1, "20 Discount", "Banner", "Alex", "Hello! We are glad to work with you, enjoy your 20% off!", ""); //Make second object
 
         Deque fifo = new Deque(); //make an object of data type - first-in-first-out
         fifo.addBack(of2); //add second object to fifo
         fifo.addBack(of1); //add first object to fifo
-        fifo.addBack(new AdsSys(2, "Google", "Link", "Lera", "How u doing?", "Send")); //make third object of class and adding to fifo
+        fifo.addBack(new AdsSys(2, "First Purchase", "Link", "Lera", "How u doing? There are your first purchase discount. Welcome!", "Send")); //make third object of class and adding to fifo
         fifo.Demo(); //print fifo
         fifo.popFront(); //delete of2 from fifo
         fifo.Demo(); //print fifo

@@ -24,7 +24,6 @@
   </properties>
   <dependencies>
 
-    <!-- Adding Joda Time plugin from maven repo -->
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
