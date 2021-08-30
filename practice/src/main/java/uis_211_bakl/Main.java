@@ -120,6 +120,7 @@ public class Main
             }
         }
         print(of2.toString()); //print an object from our class to show how work tostring method in our class
+        scanner.close();
     }
     private static void print(String string)  //making an method to easy print in programm
     {
