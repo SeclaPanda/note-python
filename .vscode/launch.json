@@ -12,41 +12,6 @@
             "projectName": "practice"
         },
         {
-            "type": "java",
-            "name": "Launch main",
-            "request": "launch",
-            "mainClass": "com.mycompany.app.main",
-            "projectName": "my-app"
-        },
-        {
-            "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "com.mycompany.app.App",
-            "projectName": "my-app"
-        },
-        {
-            "type": "java",
-            "name": "Launch que",
-            "request": "launch",
-            "mainClass": "com.mycompany.app.que",
-            "projectName": "my-app"
-        },
-        {
-            "type": "java",
-            "name": "Launch sat",
-            "request": "launch",
-            "mainClass": "com.mycompany.app.sat",
-            "projectName": "my-app"
-        },
-        {
-            "type": "java",
-            "name": "Launch deal",
-            "request": "launch",
-            "mainClass": "com.mycompany.app.deal",
-            "projectName": "my-app"
-        },
-        {
             "type": "fpDebug",
             "request": "launch",
             "name": "Launch Program",
